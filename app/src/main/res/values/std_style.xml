@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BigTextStyle">
+        <item name="android:textSize">25sp</item>
+        <item name="android:padding">3dp</item>
+    </style>
+    <style name="NormalTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">3dp</item>
+    </style>
+</resources>

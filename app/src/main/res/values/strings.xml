@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RaspiCar</string>
+    <string name="ip">IP</string>
+    <string name="port">Port</string>
+    <string name="connect_button">连接</string>
+    <string name="camera_comment">相机控制</string>
+    <string name="off_road_block_comment">避障\n关闭</string>
+    <string name="off_bulb_comment">照明\n关闭</string>
+    <string name="off_model_3d_comment">开始\n建模</string>
+    <string name="on_road_block_comment">避障\n开启</string>
+    <string name="on_bulb_comment">照明\n开启</string>
+    <string name="on_model_3d_comment">正在\n建模</string>
+    <string name="bulb_button_comment">照明</string>
+    <string name="model_3d_button_comment">建模</string>
+    <string name="road_block_button_comment">避障</string>
+</resources>

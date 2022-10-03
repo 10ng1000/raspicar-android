@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="landscape"
+    tools:context=".MainActivity">
+
+    <com.shy.rockerview.MyRockerView
+        android:id="@+id/carRocker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="560dp"
+        app:areaBackground="#40000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rockerBackground="@color/white"
+        app:rockerCallBackMode="CALL_BACK_MODE_STATE_CHANGE"
+        app:rockerScale="0.5"
+        app:rockerSpeedLevel="10" />
+
+    <com.shy.rockerview.MyRockerView
+        android:id="@+id/cameraRocker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        app:areaBackground="#40000000"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rockerBackground="@color/white"
+        app:rockerCallBackMode="CALL_BACK_MODE_STATE_CHANGE"
+        app:rockerScale="0.5"
+        app:rockerSpeedLevel="10" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/cameraComment"
+            style="@style/NormalTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/camera_comment" />
+
+        <ImageView
+            android:id="@+id/cameraImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            app:srcCompat="@drawable/camera" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/bulbButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginEnd="20dp"
+                android:background="#FFFFFF"
+                android:contentDescription="@string/bulb_button_comment"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/off_bulb" />
+
+            <ImageButton
+                android:id="@+id/roadBlockButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/cardview_shadow_end_color"
+                android:contentDescription="@string/road_block_button_comment"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/off_roadblock" />
+
+            <ImageButton
+                android:id="@+id/model3dButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:adjustViewBounds="false"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/model_3d_button_comment"
+                android:scaleType="centerInside"
+                android:src="@drawable/off_3d"
+                app:srcCompat="@drawable/off_3d" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bulbComment"
+                style="@style/NormalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/off_bulb_comment" />
+
+            <TextView
+                android:id="@+id/roadBlockComment"
+                style="@style/NormalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/off_road_block_comment" />
+
+            <TextView
+                android:id="@+id/model3dComment"
+                style="@style/NormalTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/off_model_3d_comment" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,21 @@
-package com.a310openeuler.raspicar;
+package a310openeuler.raspicar.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.Timer;
+import a310openeuler.raspicar.R;
+import a310openeuler.raspicar.widgets.BackGroundMediaPlayer;
+import a310openeuler.raspicar.widgets.SwitchImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         TextView model3dComment = findViewById(R.id.model3dComment);
         TextView bulbComment = findViewById(R.id.bulbComment);
         TextView roadBlockComment = findViewById(R.id.roadBlockComment);
+        SurfaceView surfaceView = findViewById(R.id.surfaceView);
 
         //使用下列部件
         SwitchImageButton switchModel3dButton = new SwitchImageButton(
@@ -62,7 +68,11 @@ public class MainActivity extends AppCompatActivity {
             switchRoadBlockButton.changeState();
             //todo
         });
-        //todo 实现视频流
+
+        //todo 无法获取视频
+        BackGroundMediaPlayer mediaPlayer = new BackGroundMediaPlayer(
+                surfaceView, getApplicationContext(), getString(R.string.rtmp_url));
+        mediaPlayer.playWhenReady();
         //todo 实现控制
     }
 }

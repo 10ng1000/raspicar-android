@@ -1,4 +1,4 @@
-package com.a310openeuler.raspicar;
+package a310openeuler.raspicar;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.a310openeuler.raspicar", appContext.getPackageName());
+        assertEquals("a310openeuler.raspicar", appContext.getPackageName());
     }
 }

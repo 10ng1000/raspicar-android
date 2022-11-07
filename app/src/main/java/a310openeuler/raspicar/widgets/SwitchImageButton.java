@@ -1,4 +1,4 @@
-package com.a310openeuler.raspicar;
+package a310openeuler.raspicar.widgets;
 
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -8,12 +8,12 @@ import android.widget.TextView;
  */
 public class SwitchImageButton {
     private boolean isTouched = false;
-    private ImageButton button;
-    private TextView comment;
-    private int offImage;
-    private int onImage;
-    private int offComment;
-    private int onComment;
+    private final ImageButton button;
+    private final TextView comment;
+    private final int offImage;
+    private final int onImage;
+    private final int offComment;
+    private final int onComment;
 
     public SwitchImageButton(
             ImageButton button,TextView comment,

@@ -1,4 +1,4 @@
-package com.a310openeuler.raspicar;
+package a310openeuler.raspicar.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import a310openeuler.raspicar.R;
+
+// 连接页面
 public class ConnectActivity extends AppCompatActivity {
 
     @Override

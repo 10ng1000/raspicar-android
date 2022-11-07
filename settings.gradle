@@ -16,5 +16,5 @@ dependencyResolutionManagement {
         maven { url 'https://developer.huawei.com/repo/' }
     }
 }
-rootProject.name = "RaspiCar"
+rootProject.name = "raspicar"
 include ':app'

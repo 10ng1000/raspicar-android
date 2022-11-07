@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.a310openeuler.raspicar">
+    package="a310openeuler.raspicar">
 
     <!--允许程序写入材质贴图文件和读取需要处理的数据-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,6 +14,9 @@
     <!--网络权限 数据上传和模型下载使用-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许保持亮屏-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
 
     <application
         android:allowBackup="true"
@@ -23,10 +26,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RaspiCar">
         <activity
-            android:name=".MainActivity"
+            android:name="a310openeuler.raspicar.activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ConnectActivity"
+            android:name="a310openeuler.raspicar.activity.ConnectActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

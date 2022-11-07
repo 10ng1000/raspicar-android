@@ -2,6 +2,7 @@
     <string name="app_name">RaspiCar</string>
     <string name="ip">IP</string>
     <string name="port">Port</string>
+    <string name="rtmp_url">rtmp://192.168.137.144:7777/live</string>
     <string name="connect_button">连接</string>
     <string name="camera_comment">相机控制</string>
     <string name="off_road_block_comment">避障\n关闭</string>

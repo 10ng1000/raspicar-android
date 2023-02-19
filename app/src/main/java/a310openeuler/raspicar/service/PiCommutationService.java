@@ -12,8 +12,16 @@ import java.net.URI;
 // 已测试可连接
 public class PiCommutationService {
     private static final String TAG = "PiControlService";
-    private static String SERVER_URI = "ws://192.168.137.144:617";
+    private static String SERVER_URI = "ws://192.168.226.162:617";
     private static WebSocketClient client = null;
+
+    public static void start(){
+        try {
+            connect(SERVER_URI);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void connect(String url){
         SERVER_URI = url;
@@ -42,13 +50,17 @@ public class PiCommutationService {
             };
         }
         client.connect();
+        long t = 100;
         //等待连接成功
-        while (!client.isOpen()){
+        while (!client.isOpen() && t-- > 0){
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+        if (t <= 0){
+            System.out.println("connect timeout");
         }
     }
 
@@ -67,8 +79,15 @@ public class PiCommutationService {
         //Log.d(TAG, "send: " + "client is null or closed");
     }
 
+    public static void send(double lf, double rf, double lb, double rb) {
+        if (client != null && client.isOpen()) {
+            client.send(lf + ":" + rf +":" + lb + ":" + rb);
+        }
+    }
+
     @Override
     protected void finalize() throws Throwable {
+        client.send("0:0:0:0");
         super.finalize();
         disconnect();
     }

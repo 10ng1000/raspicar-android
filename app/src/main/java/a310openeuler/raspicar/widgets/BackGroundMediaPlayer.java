@@ -18,7 +18,6 @@ public class BackGroundMediaPlayer{
             public void surfaceCreated(SurfaceHolder holder) {
                 try {
                     mediaPlayer.setDataSource(context, Uri.parse(url));
-                    mediaPlayer.prepare();
                     mediaPlayer.start();
                     mediaPlayer.setDisplay(surfaceView.getHolder());
                 } catch (Exception e) {

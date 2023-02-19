@@ -13,7 +13,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.shy.rockerview.MyRockerView;
+
 import a310openeuler.raspicar.R;
+import a310openeuler.raspicar.service.PiCommutationService;
+import a310openeuler.raspicar.service.RockerService;
 import a310openeuler.raspicar.widgets.BackGroundMediaPlayer;
 import a310openeuler.raspicar.widgets.SwitchImageButton;
 
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         TextView model3dComment = findViewById(R.id.model3dComment);
         TextView bulbComment = findViewById(R.id.bulbComment);
         TextView roadBlockComment = findViewById(R.id.roadBlockComment);
-        SurfaceView surfaceView = findViewById(R.id.surfaceView);
+        MyRockerView rockerView = findViewById(R.id.carRocker);
 
         //使用下列部件
         SwitchImageButton switchModel3dButton = new SwitchImageButton(
@@ -70,9 +74,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //todo 无法获取视频
+        /*
         BackGroundMediaPlayer mediaPlayer = new BackGroundMediaPlayer(
-                surfaceView, getApplicationContext(), getString(R.string.rtmp_url));
-        mediaPlayer.playWhenReady();
+                surfaceView, getApplicationContext(), "rtmp://" + getString(R.string.ip) + ":7777/live");
+        mediaPlayer.playWhenReady();*/
         //todo 实现控制
+        PiCommutationService.start();
+        RockerService rockerService = new RockerService(rockerView);
+        rockerService.start();
     }
 }

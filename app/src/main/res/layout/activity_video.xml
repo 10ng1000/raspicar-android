@@ -56,14 +56,15 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#FFFFFF"
+            android:contentDescription="camera image"
             app:srcCompat="@drawable/camera" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="108dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -137,6 +138,52 @@
                 android:layout_height="wrap_content"
                 android:text="@string/off_model_3d_comment" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="154dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="358dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cameraRocker"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="158dp"
+            android:layout_height="79dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/leftRotateButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="#FFFFFF"
+                android:contentDescription="left"
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                app:srcCompat="@drawable/left_rotate" />
+
+            <ImageButton
+                android:id="@+id/rightRotateButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="#FFFFFF"
+                android:contentDescription="right"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/right_rotate" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/rotateComment"
+            style="@style/NormalTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:text="@string/rotate_comment" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

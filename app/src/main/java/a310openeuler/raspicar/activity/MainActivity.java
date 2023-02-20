@@ -1,14 +1,11 @@
 package a310openeuler.raspicar.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,8 +14,7 @@ import com.shy.rockerview.MyRockerView;
 
 import a310openeuler.raspicar.R;
 import a310openeuler.raspicar.service.PiCommutationService;
-import a310openeuler.raspicar.service.RockerService;
-import a310openeuler.raspicar.widgets.BackGroundMediaPlayer;
+import a310openeuler.raspicar.service.MovementService;
 import a310openeuler.raspicar.widgets.SwitchImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         TextView bulbComment = findViewById(R.id.bulbComment);
         TextView roadBlockComment = findViewById(R.id.roadBlockComment);
         MyRockerView rockerView = findViewById(R.id.carRocker);
+        ImageButton leftRotateButton = findViewById(R.id.leftRotateButton);
+        ImageButton rightRotateButton = findViewById(R.id.rightRotateButton);
 
         //使用下列部件
         SwitchImageButton switchModel3dButton = new SwitchImageButton(
@@ -80,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.playWhenReady();*/
         //todo 实现控制
         PiCommutationService.start();
-        RockerService rockerService = new RockerService(rockerView);
-        rockerService.start();
+        MovementService movementService = new MovementService(rockerView, leftRotateButton, rightRotateButton);
+        movementService.start();
     }
 }

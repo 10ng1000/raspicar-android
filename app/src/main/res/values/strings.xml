@@ -5,6 +5,7 @@
     <string name="rtmp_url">rtmp://192.168.137.144:7777/live</string>
     <string name="connect_button">连接</string>
     <string name="camera_comment">相机控制</string>
+    <string name="rotate_comment">       左右旋转</string>
     <string name="off_road_block_comment">避障\n关闭</string>
     <string name="off_bulb_comment">照明\n关闭</string>
     <string name="off_model_3d_comment">开始\n建模</string>

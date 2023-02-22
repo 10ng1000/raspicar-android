@@ -5,14 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.exoplayer2.ui.StyledPlayerView;
 import com.shy.rockerview.MyRockerView;
 
 import a310openeuler.raspicar.R;
+import a310openeuler.raspicar.service.MediaPlayerService;
 import a310openeuler.raspicar.service.PiCommutationService;
 import a310openeuler.raspicar.service.MovementService;
 import a310openeuler.raspicar.widgets.SwitchImageButton;
@@ -41,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         ImageButton leftRotateButton = findViewById(R.id.leftRotateButton);
         ImageButton rightRotateButton = findViewById(R.id.rightRotateButton);
 
+        //todo 实现控制
+        PiCommutationService.start();
+        MovementService movementService = new MovementService(rockerView, leftRotateButton, rightRotateButton);
+        movementService.start();
+
         //使用下列部件
         SwitchImageButton switchModel3dButton = new SwitchImageButton(
                 model3dButton, model3dComment,
@@ -68,17 +77,18 @@ public class MainActivity extends AppCompatActivity {
 
         roadBlockButton.setOnClickListener((View view) -> {
             switchRoadBlockButton.changeState();
+            if(switchRoadBlockButton.isOn()) {
+                PiCommutationService.send("0:1");
+            } else {
+                PiCommutationService.send("0:0");
+            }
             //todo
         });
 
         //todo 无法获取视频
-        /*
-        BackGroundMediaPlayer mediaPlayer = new BackGroundMediaPlayer(
-                surfaceView, getApplicationContext(), "rtmp://" + getString(R.string.ip) + ":7777/live");
-        mediaPlayer.playWhenReady();*/
-        //todo 实现控制
-        PiCommutationService.start();
-        MovementService movementService = new MovementService(rockerView, leftRotateButton, rightRotateButton);
-        movementService.start();
+/*
+        MediaPlayerService mediaPlayerService = new MediaPlayerService(this,
+                styledPlayerView, Uri.parse("rtmp://192.168.226.162:7777/live"));
+  */
     }
 }

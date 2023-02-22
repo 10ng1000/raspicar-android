@@ -50,7 +50,7 @@ public class PiCommutationService {
             };
         }
         client.connect();
-        long t = 100;
+        long t = 10;
         //等待连接成功
         while (!client.isOpen() && t-- > 0){
             try {

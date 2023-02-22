@@ -49,13 +49,14 @@
             style="@style/NormalTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/camera_comment" />
+            android:text="@string/camera_comment"
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/cameraImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="#FFFFFF"
+            android:background="@color/cardview_shadow_end_color"
             android:contentDescription="camera image"
             app:srcCompat="@drawable/camera" />
     </LinearLayout>
@@ -65,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="108dp"
+        android:alpha="255"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -82,7 +84,7 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_marginEnd="20dp"
-                android:background="#FFFFFF"
+                android:background="@color/cardview_shadow_end_color"
                 android:contentDescription="@string/bulb_button_comment"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/off_bulb" />
@@ -160,17 +162,16 @@
                 android:id="@+id/leftRotateButton"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:background="#FFFFFF"
+                android:background="@color/cardview_shadow_end_color"
                 android:contentDescription="left"
                 android:scaleType="centerInside"
-                android:visibility="visible"
                 app:srcCompat="@drawable/left_rotate" />
 
             <ImageButton
                 android:id="@+id/rightRotateButton"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:background="#FFFFFF"
+                android:background="@color/cardview_shadow_end_color"
                 android:contentDescription="right"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/right_rotate" />

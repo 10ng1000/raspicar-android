@@ -26,7 +26,6 @@ public class SwitchImageButton {
         this.onComment = onComment;
     }
 
-    //todo 点击时字体会移动
     public void changeState(){
         if (!isTouched) {
             button.setImageResource(onImage);
@@ -37,5 +36,9 @@ public class SwitchImageButton {
             comment.setText(offComment);
         }
         isTouched = !isTouched;
+    }
+
+    public boolean isOn(){
+        return isTouched;
     }
 }

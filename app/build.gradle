@@ -11,12 +11,12 @@ apply plugin: 'com.huawei.agconnect'
 
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId 'a310openeuler.raspicar'
         minSdk 26
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -51,4 +51,9 @@ dependencies {
     implementation 'com.huawei.hms:modeling3d-motion-capture:1.7.0.301'
     implementation 'com.huawei.hms:modeling3d-motion-capture-model:1.7.0.301'*/
     implementation 'org.java-websocket:Java-WebSocket:1.5.3'
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.3'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.3'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.3'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.3'
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.18.3'
 }

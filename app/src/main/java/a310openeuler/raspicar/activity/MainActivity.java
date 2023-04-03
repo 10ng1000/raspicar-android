@@ -5,21 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.android.exoplayer2.ui.StyledPlayerView;
 import com.shy.rockerview.MyRockerView;
 
 import a310openeuler.raspicar.R;
-import a310openeuler.raspicar.service.MediaPlayerService;
 import a310openeuler.raspicar.service.PiCommutationService;
 import a310openeuler.raspicar.service.MovementService;
+import a310openeuler.raspicar.service.utils;
 import a310openeuler.raspicar.widgets.SwitchImageButton;
+import tcking.github.com.giraffeplayer2.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,12 +40,11 @@ public class MainActivity extends AppCompatActivity {
         TextView bulbComment = findViewById(R.id.bulbComment);
         TextView roadBlockComment = findViewById(R.id.roadBlockComment);
         MyRockerView rockerView = findViewById(R.id.carRocker);
-        ImageButton leftRotateButton = findViewById(R.id.leftRotateButton);
-        ImageButton rightRotateButton = findViewById(R.id.rightRotateButton);
+        MyRockerView rotateRockerView = findViewById(R.id.rotateRocker);
+        VideoView videoView = findViewById(R.id.videoView);
 
-        //todo 实现控制
         PiCommutationService.start();
-        MovementService movementService = new MovementService(rockerView, leftRotateButton, rightRotateButton);
+        MovementService movementService = new MovementService(rockerView, rotateRockerView);
         movementService.start();
 
         //使用下列部件
@@ -67,12 +64,20 @@ public class MainActivity extends AppCompatActivity {
         //设置listener
         model3dButton.setOnClickListener((View view) -> {
             switchModel3dButton.changeState();
-            //todo
+            if (switchModel3dButton.isOn()) {
+                PiCommutationService.send("2:1");
+            } else {
+                PiCommutationService.send("2:0");
+            }
         });
 
         bulbButton.setOnClickListener((View view) -> {
             switchBulbButton.changeState();
-            //todo
+            if(switchBulbButton.isOn()) {
+                PiCommutationService.send("1:1");
+            } else {
+                PiCommutationService.send("1:0");
+            }
         });
 
         roadBlockButton.setOnClickListener((View view) -> {
@@ -85,10 +90,7 @@ public class MainActivity extends AppCompatActivity {
             //todo
         });
 
-        //todo 无法获取视频
-/*
-        MediaPlayerService mediaPlayerService = new MediaPlayerService(this,
-                styledPlayerView, Uri.parse("rtmp://192.168.226.162:7777/live"));
-  */
+        videoView.setVideoPath("rtmp://" + utils.ip + utils.rtmpPostFix).getPlayer().start();
+        //GiraffePlayer.play(this, new VideoInfo("rtmp://192.168.226.162:7777/live"));
     }
 }

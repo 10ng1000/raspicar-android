@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import a310openeuler.raspicar.service.MovementComputationService;
 import a310openeuler.raspicar.service.PiCommutationService;
 
 /**
@@ -21,13 +20,11 @@ public class ExampleUnitTest {
     @Test
     public void piConnectTest(){
         PiCommutationService.connect("ws://192.168.111.162:617");
-        PiCommutationService.send(MovementComputationService.forward(50));
         try {
             Thread.sleep(1000);
         }
         catch (Exception e){
             e.printStackTrace();
         }
-        PiCommutationService.send(MovementComputationService.stop());
     }
 }

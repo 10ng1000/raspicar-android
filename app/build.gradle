@@ -51,9 +51,9 @@ dependencies {
     implementation 'com.huawei.hms:modeling3d-motion-capture:1.7.0.301'
     implementation 'com.huawei.hms:modeling3d-motion-capture-model:1.7.0.301'*/
     implementation 'org.java-websocket:Java-WebSocket:1.5.3'
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.3'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.3'
-    implementation 'com.google.android.exoplayer:extension-rtmp:2.18.3'
+    implementation 'com.github.tcking:giraffeplayer2:0.1.25-full'
+    implementation 'com.github.tcking:ijkplayer-arm64:0.8.8-full' //support arm64
+    implementation 'com.github.tcking:ijkplayer-armv5:0.8.8-full' //support armv5
+    implementation 'com.github.tcking:ijkplayer-x86:0.8.8-full' //support x86
+    implementation 'com.github.tcking:ijkplayer-x86_64:0.8.8-full' //support x86_64
 }

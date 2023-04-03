@@ -12,7 +12,7 @@ import java.net.URI;
 // 已测试可连接
 public class PiCommutationService {
     private static final String TAG = "PiControlService";
-    private static String SERVER_URI = "ws://192.168.226.162:617";
+    private static String SERVER_URI = "ws://" + utils.ip + utils.webSocketPostFix;
     private static WebSocketClient client = null;
 
     public static void start(){
@@ -72,7 +72,7 @@ public class PiCommutationService {
 
     //发送字符串信息
     public static void send(String message) {
-        if (client != null && client.isOpen()) {
+        if (client != null && client.isOpen() && ThrottleService.throttle()) {
             client.send(message);
             //Log.d(TAG, "send: " + message);
         }
@@ -80,7 +80,7 @@ public class PiCommutationService {
     }
 
     public static void send(double lf, double rf, double lb, double rb) {
-        if (client != null && client.isOpen()) {
+        if (client != null && client.isOpen() && ThrottleService.throttle()) {
             client.send(lf + ":" + rf +":" + lb + ":" + rb);
         }
     }
